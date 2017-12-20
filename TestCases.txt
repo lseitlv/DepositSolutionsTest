@@ -1,0 +1,137 @@
+Test Cases - New User page
+
+Requirements:
+The following values must be inserted in the form for user creation.
+- Name
+- Email
+- Password
+- Name field is mandatory and must be unique
+- Email field is mandatory and must be unique
+- Password is mandatory
+- Password and Password confirmation field must contain the same value
+
+TC1 - User creation - Sucessful
+Navigate to New User page and insert:
+- Unique 1 to 20 characteres value on field Name
+- Unique valid email address value on field Email
+- 1 to 20 characteres value in the field Password
+- Same password value in the password confirmation field
+Expected result:
+User is created sucessfully.
+
+TC2 - User creation - repeated username
+Navigate to New User page and insert:
+- Already existing value on field Name
+- Unique valid email address value on field Email
+- 1 to 20 characteres value in the field Password
+- Same password value in the password confirmation field
+Expected result:
+User creation fails.
+
+TC3 - User creation - repeated email
+Navigate to New User page and insert:
+- Unique 1 to 20 characteres value on field Name
+- Already existing value on field Email
+- 1 to 20 characteres value in the field Password
+- Same password value in the password confirmation field
+Expected result:
+User creation fails.
+
+TC4 - User creation - Password not equal
+Navigate to New User page and insert:
+- Unique 1 to 20 characteres value on field Name
+- Unique valid email address value on field Email
+- 1 to 20 characteres value in the field Password
+- 1 to 20 characteres value DIFFERENT from Password in the password confirmation field
+Expected result:
+User creation fails.
+
+TC5 - User creation - Long user name
+Navigate to New User page and insert:
+- Unique 1000 characteres value on field Name
+- Unique valid email address value on field Email
+- 1 to 20 characteres value in the field Password
+- Same password value in the password confirmation field
+Expected result:
+Not defined by the requirements. It's expected that either the creation is successful, or the Name field value is not accepted.
+
+TC6 - User creation - Long email
+Navigate to New User page and insert:
+- Unique 1 to 20 characteres value on field Name
+- Unique 1000 characteres value on field Email
+- 1 to 20 characteres value in the field Password
+- Same password value in the password confirmation field
+Expected result:
+Not defined by the requirements. It's expected that either the creation is successful, or the Email field value is not accepted.
+
+TC7 - User creation - Long password
+Navigate to New User page and insert:
+- Unique 1 to 20 characteres value on field Name
+- Unique 1 to 20 characteres value on field Email
+- 1000 characteres value in the field Password
+- Same password value in the password confirmation field
+Expected result:
+Not defined by the requirements. It's expected that either the creation is successful, or the Password field value is not accepted.
+
+TC8 - User creation - Empty username
+Navigate to New User page and insert:
+- Leave Name field empty
+- Unique 1 to 20 characteres value on field Email
+- 1 to 20 characteres value in the field Password
+- Same password value in the password confirmation field
+Expected result:
+User creation fails.
+
+TC9 - User creation - Empty email
+Navigate to New User page and insert:
+- Unique 1 to 20 characteres value on field Name
+- Leave Email field empty
+- 1 to 20 characteres value in the field Password
+- Same password value in the password confirmation field
+Expected result:
+User creation fails.
+
+TC10 - User creation - Empty password
+Navigate to New User page and insert:
+- Unique 1 to 20 characteres value on field Name
+- Unique 1 to 20 characteres value on field Email
+- Leave password field empty
+- Leave password confirmation field empty
+Expected result:
+User creation fails.
+
+TC11 - User creation - Empty password confirmation
+Navigate to New User page and insert:
+- Unique 1 to 20 characteres value on field Name
+- Unique 1 to 20 characteres value on field Email
+- 1 to 20 characteres value in the field Password
+- Leave password confirmation field empty
+Expected result:
+User creation fails.
+
+TC12 - User creation - Special characteres on Name
+Navigate to New User page and insert:
+- Unique 1 to 20 characteres value on field Name containing a set of special characteres (e. g.: ! @ # $ % ^ & * ( ) _ + = :)
+- Unique 1 to 20 characteres value on field Email
+- 1 to 20 characteres value in the field Password
+- Same password value in the password confirmation field
+Expected result:
+Not defined by the requirements. It's expected that either the creation is successful, or the Name field value is not accepted.
+
+TC13 - User creation - Invalid email format
+Navigate to New User page and insert:
+- Unique 1 to 20 characteres value on field Name
+- Unique 1 to 20 characteres value on field Email that do not configure a valid email address (email@address.domain)
+- 1 to 20 characteres value in the field Password
+- Same password value in the password confirmation field
+Expected result:
+Not defined by the requirements. If the email format is validated by the system, it should not be accepted and user cration will fail.
+
+TC14 - User creation - Special characteres on Password
+Navigate to New User page and insert:
+- Unique 1 to 20 characteres value on field Name
+- Unique 1 to 20 characteres value on field Email
+- 1 to 20 characteres value in the field Password containing a set of special characteres (e. g.: ! @ # $ % ^ & * ( ) _ + = :)
+- Same password value in the password confirmation field
+Expected result:
+Not defined by the requirements. The password field should normally accept special characteres, so the creation should be successful.
