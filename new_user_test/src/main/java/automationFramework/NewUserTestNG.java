@@ -8,8 +8,6 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.WebElement;
-import org.testng.Reporter;
 import org.testng.Assert;
 
 public class NewUserTestNG {
@@ -30,9 +28,15 @@ public class NewUserTestNG {
 	 driver.findElement(By.id("confirmationPassword")).sendKeys(password);
 	 driver.findElement(By.xpath("/html/body/div/div/div/form/fieldset/div[5]/button")).click();
 	 
-	 //Checking that page title is displayed - i.e. page didn't crash
-	 Assert.assertTrue(driver.findElement(By.xpath("/html/body/div/div/div/div/h1")).isDisplayed());
-
+	 //Verifying that user information is displayed in the table
+	 String tableName = driver.findElement(By.cssSelector("table#users tr:last-child td:nth-of-type(1)")).getText();
+	 String tableEmail = driver.findElement(By.cssSelector("table#users tr:last-child td:nth-of-type(2)")).getText();
+	 String tablePassword = driver.findElement(By.cssSelector("table#users tr:last-child td:nth-of-type(3)")).getText();
+	 
+	 Assert.assertEquals(tableName, userName);
+	 Assert.assertEquals(tableEmail, userEmail);
+	 Assert.assertEquals(tablePassword, password);
+	 
   }
   
   //TC2 - User creation - user name not unique
@@ -49,8 +53,10 @@ public class NewUserTestNG {
 	 driver.findElement(By.id("confirmationPassword")).sendKeys(password);
 	 driver.findElement(By.xpath("/html/body/div/div/div/form/fieldset/div[5]/button")).click();
 	 
-	 //Checking that page title is displayed - i.e. page didn't crash
-	 Assert.assertTrue(driver.findElement(By.xpath("/html/body/div/div/div/div/h1")).isDisplayed());
+	 //Checking that 'User name must be unique' message is displayed
+	 String expectedMessage = "Must be unique";
+	 String errorMessage = driver.findElement(By.id("user.name.error")).getText();
+	 Assert.assertEquals(errorMessage, expectedMessage);
 
   }
   
@@ -68,9 +74,10 @@ public class NewUserTestNG {
 	 driver.findElement(By.id("confirmationPassword")).sendKeys(password);
 	 driver.findElement(By.xpath("/html/body/div/div/div/form/fieldset/div[5]/button")).click();
 	 
-	 //Checking that page title is displayed - i.e. page didn't crash
-	 Assert.assertTrue(driver.findElement(By.xpath("/html/body/div/div/div/div/h1")).isDisplayed());
-
+	//Checking that 'Email must be unique' message is displayed
+		 String expectedMessage = "Must be unique";
+		 String errorMessage = driver.findElement(By.id("user.email.error")).getText();
+		 Assert.assertEquals(errorMessage, expectedMessage);
   }
   
   //TC4 - User creation - Password confirmation not equal
@@ -87,8 +94,10 @@ public class NewUserTestNG {
 	 driver.findElement(By.id("confirmationPassword")).sendKeys("WrongPassword");
 	 driver.findElement(By.xpath("/html/body/div/div/div/form/fieldset/div[5]/button")).click();
 	 
-	 //Checking that page title is displayed - i.e. page didn't crash
-	 Assert.assertTrue(driver.findElement(By.xpath("/html/body/div/div/div/div/h1")).isDisplayed());
+	//Checking that password error message is displayed
+	 String expectedMessage = "passwords are not the same";
+	 String errorMessage = driver.findElement(By.id("user.confirmationPassword.error")).getText();
+	 Assert.assertEquals(errorMessage, expectedMessage);
 
   }
   
@@ -116,8 +125,10 @@ public class NewUserTestNG {
 	 driver.findElement(By.id("confirmationPassword")).sendKeys(password);
 	 driver.findElement(By.xpath("/html/body/div/div/div/form/fieldset/div[5]/button")).click();
 	 
-	 //Checking that page title is displayed - i.e. page didn't crash
-	 Assert.assertTrue(driver.findElement(By.xpath("/html/body/div/div/div/div/h1")).isDisplayed());
+	//Checking that user name too long message is displayed
+		 String expectedMessage = "Maximum size is 255";
+		 String errorMessage = driver.findElement(By.id("user.name.error")).getText();
+		 Assert.assertEquals(errorMessage, expectedMessage);
 
   }
   
@@ -146,8 +157,10 @@ public class NewUserTestNG {
 	 driver.findElement(By.id("confirmationPassword")).sendKeys(password);
 	 driver.findElement(By.xpath("/html/body/div/div/div/form/fieldset/div[5]/button")).click();
 	 
-	 //Checking that page title is displayed - i.e. page didn't crash
-	 Assert.assertTrue(driver.findElement(By.xpath("/html/body/div/div/div/div/h1")).isDisplayed());
+	//Checking that email too long message is displayed
+	 String expectedMessage = "Maximum size is 255";
+	 String errorMessage = driver.findElement(By.id("user.email.error")).getText();
+	 Assert.assertEquals(errorMessage, expectedMessage);
 
   }
   
@@ -176,8 +189,10 @@ public class NewUserTestNG {
 	 driver.findElement(By.id("confirmationPassword")).sendKeys(password);
 	 driver.findElement(By.xpath("/html/body/div/div/div/form/fieldset/div[5]/button")).click();
 	 
-	 //Checking that page title is displayed - i.e. page didn't crash
-	 Assert.assertTrue(driver.findElement(By.xpath("/html/body/div/div/div/div/h1")).isDisplayed());
+	//Checking that password error message is displayed
+		 String expectedMessage = "Maximum size is 255";
+		 String errorMessage = driver.findElement(By.id("user.password.error")).getText();
+		 Assert.assertEquals(errorMessage, expectedMessage);
 
   }
   
@@ -193,8 +208,10 @@ public class NewUserTestNG {
 	 driver.findElement(By.id("confirmationPassword")).sendKeys(password);
 	 driver.findElement(By.xpath("/html/body/div/div/div/form/fieldset/div[5]/button")).click();
 	 
-	 //Checking that page title is displayed - i.e. page didn't crash
-	 Assert.assertTrue(driver.findElement(By.xpath("/html/body/div/div/div/div/h1")).isDisplayed());
+	//Checking that user name is required message is displayed
+		 String expectedMessage = "Required";
+		 String errorMessage = driver.findElement(By.id("user.name.error")).getText();
+		 Assert.assertEquals(errorMessage, expectedMessage);
 
   }
   
@@ -210,8 +227,10 @@ public class NewUserTestNG {
 	 driver.findElement(By.id("confirmationPassword")).sendKeys(password);
 	 driver.findElement(By.xpath("/html/body/div/div/div/form/fieldset/div[5]/button")).click();
 	 
-	 //Checking that page title is displayed - i.e. page didn't crash
-	 Assert.assertTrue(driver.findElement(By.xpath("/html/body/div/div/div/div/h1")).isDisplayed());
+	//Checking that user email required message is displayed
+	 String expectedMessage = "Required";
+	 String errorMessage = driver.findElement(By.id("user.email.error")).getText();
+	 Assert.assertEquals(errorMessage, expectedMessage);
 
   }
   
@@ -226,8 +245,10 @@ public class NewUserTestNG {
 	 driver.findElement(By.id("email")).sendKeys(userEmail);
 	 driver.findElement(By.xpath("/html/body/div/div/div/form/fieldset/div[5]/button")).click();
 	 
-	 //Checking that page title is displayed - i.e. page didn't crash
-	 Assert.assertTrue(driver.findElement(By.xpath("/html/body/div/div/div/div/h1")).isDisplayed());
+	//Checking that password is required message is displayed
+	 String expectedMessage = "Required";
+	 String errorMessage = driver.findElement(By.id("user.password.error")).getText();
+	 Assert.assertEquals(errorMessage, expectedMessage);
 
   }
   
@@ -244,8 +265,10 @@ public class NewUserTestNG {
 	 driver.findElement(By.id("password")).sendKeys(password);
 	 driver.findElement(By.xpath("/html/body/div/div/div/form/fieldset/div[5]/button")).click();
 	 
-	 //Checking that page title is displayed - i.e. page didn't crash
-	 Assert.assertTrue(driver.findElement(By.xpath("/html/body/div/div/div/div/h1")).isDisplayed());
+	//Checking that passwords are not equal message is displayed
+		 String expectedMessage = "passwords are not the same";
+		 String errorMessage = driver.findElement(By.id("user.confirmationPassword.error")).getText();
+		 Assert.assertEquals(errorMessage, expectedMessage);
 
   }
   
@@ -263,8 +286,14 @@ public class NewUserTestNG {
 	 driver.findElement(By.id("confirmationPassword")).sendKeys(password);
 	 driver.findElement(By.xpath("/html/body/div/div/div/form/fieldset/div[5]/button")).click();
 	 
-	 //Checking that page title is displayed - i.e. page didn't crash
-	 Assert.assertTrue(driver.findElement(By.xpath("/html/body/div/div/div/div/h1")).isDisplayed());
+	//Verifying that user information is displayed in the table
+		 String tableName = driver.findElement(By.cssSelector("table#users tr:last-child td:nth-of-type(1)")).getText();
+		 String tableEmail = driver.findElement(By.cssSelector("table#users tr:last-child td:nth-of-type(2)")).getText();
+		 String tablePassword = driver.findElement(By.cssSelector("table#users tr:last-child td:nth-of-type(3)")).getText();
+		 
+		 Assert.assertEquals(tableName, userName);
+		 Assert.assertEquals(tableEmail, userEmail);
+		 Assert.assertEquals(tablePassword, password);
 
   }
   
@@ -282,8 +311,10 @@ public class NewUserTestNG {
 	 driver.findElement(By.id("confirmationPassword")).sendKeys(password);
 	 driver.findElement(By.xpath("/html/body/div/div/div/form/fieldset/div[5]/button")).click();
 	 
-	 //Checking that page title is displayed - i.e. page didn't crash
-	 Assert.assertTrue(driver.findElement(By.xpath("/html/body/div/div/div/div/h1")).isDisplayed());
+	//Checking that user email required message is displayed
+		 String expectedMessage = "Invalid email address";
+		 String errorMessage = driver.findElement(By.id("user.email.error")).getText();
+		 Assert.assertEquals(errorMessage, expectedMessage);
 
   }
  

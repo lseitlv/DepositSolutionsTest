@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>New User Test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>13/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Dec 21 11:09:40 CET 2017</td>
+<td>Started on:</td><td>Thu Dec 21 19:16:23 CET 2017</td>
 </tr>
-<tr><td>Total time:</td><td>34 seconds (34226 ms)</td>
+<tr><td>Total time:</td><td>37 seconds (37230 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,93 +67,78 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='automationFramework.NewUserTestNG.testCase1()'><b>testCase1</b><br>Test class: automationFramework.NewUserTestNG<br/>
-<a href="#Output-773348567" onClick='toggleBox("Output-773348567", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-773348567" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-773348567">
-Started Test Case 1 - Successful user creation<br/>
-</div>
-</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: /html/body/div/div/div/div/h1
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.7.1&apos;, revision: &apos;8a0099a&apos;, time: &apos;2017-11-06T21:07:31.527Z&apos;
-System info: host: &apos;HU00201055&apos;, ip: &apos;100.94.50.196&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;9.0.1&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 57.0.2, javascriptEnabled: true, moz:accessibilityChecks: false, moz:headless: false, moz:processID: 11248, moz:profile: C:\Users\edoslui\AppData\Lo..., moz:webdriverClick: false, pageLoadStrategy: normal, platform: XP, platformName: XP, platformVersion: 6.1, rotatable: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
-Session ID: 7fbcdf21-7013-4ef4-b31f-22a4bdc2ebf2
-*** Element info: {Using=xpath, value=/html/body/div/div/div/div/h1}
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:600)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:370)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:472)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
-	at automationFramework.NewUserTestNG.testCase1(NewUserTestNG.java:35)
-... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace773348567", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace773348567'><pre>org.openqa.selenium.NoSuchElementException: Unable to locate element: /html/body/div/div/div/div/h1
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.7.1&apos;, revision: &apos;8a0099a&apos;, time: &apos;2017-11-06T21:07:31.527Z&apos;
-System info: host: &apos;HU00201055&apos;, ip: &apos;100.94.50.196&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;9.0.1&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 57.0.2, javascriptEnabled: true, moz:accessibilityChecks: false, moz:headless: false, moz:processID: 11248, moz:profile: C:\Users\edoslui\AppData\Lo..., moz:webdriverClick: false, pageLoadStrategy: normal, platform: XP, platformName: XP, platformVersion: 6.1, rotatable: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
-Session ID: 7fbcdf21-7013-4ef4-b31f-22a4bdc2ebf2
-*** Element info: {Using=xpath, value=/html/body/div/div/div/div/h1}
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:600)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:370)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:472)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
-	at automationFramework.NewUserTestNG.testCase1(NewUserTestNG.java:35)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:571)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:648)
-	at org.testng.TestRunner.run(TestRunner.java:505)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
-	at org.testng.TestNG.runSuites(TestNG.java:1028)
-	at org.testng.TestNG.run(TestNG.java:996)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>20</td>
-<td>automationFramework.NewUserTestNG@8c3b9d</td></tr>
+<td title='automationFramework.NewUserTestNG.testCase1()'><b>testCase1</b><br>Test class: automationFramework.NewUserTestNG</td>
+<td></td>
+<td>1</td>
+<td>automationFramework.NewUserTestNG@5c671d7f</td></tr>
+<tr>
+<td title='automationFramework.NewUserTestNG.testCase10()'><b>testCase10</b><br>Test class: automationFramework.NewUserTestNG</td>
+<td></td>
+<td>1</td>
+<td>automationFramework.NewUserTestNG@5c671d7f</td></tr>
+<tr>
+<td title='automationFramework.NewUserTestNG.testCase11()'><b>testCase11</b><br>Test class: automationFramework.NewUserTestNG</td>
+<td></td>
+<td>0</td>
+<td>automationFramework.NewUserTestNG@5c671d7f</td></tr>
+<tr>
+<td title='automationFramework.NewUserTestNG.testCase12()'><b>testCase12</b><br>Test class: automationFramework.NewUserTestNG</td>
+<td></td>
+<td>1</td>
+<td>automationFramework.NewUserTestNG@5c671d7f</td></tr>
+<tr>
+<td title='automationFramework.NewUserTestNG.testCase13()'><b>testCase13</b><br>Test class: automationFramework.NewUserTestNG</td>
+<td></td>
+<td>1</td>
+<td>automationFramework.NewUserTestNG@5c671d7f</td></tr>
+<tr>
+<td title='automationFramework.NewUserTestNG.testCase2()'><b>testCase2</b><br>Test class: automationFramework.NewUserTestNG</td>
+<td></td>
+<td>1</td>
+<td>automationFramework.NewUserTestNG@5c671d7f</td></tr>
+<tr>
+<td title='automationFramework.NewUserTestNG.testCase3()'><b>testCase3</b><br>Test class: automationFramework.NewUserTestNG</td>
+<td></td>
+<td>1</td>
+<td>automationFramework.NewUserTestNG@5c671d7f</td></tr>
+<tr>
+<td title='automationFramework.NewUserTestNG.testCase4()'><b>testCase4</b><br>Test class: automationFramework.NewUserTestNG</td>
+<td></td>
+<td>1</td>
+<td>automationFramework.NewUserTestNG@5c671d7f</td></tr>
+<tr>
+<td title='automationFramework.NewUserTestNG.testCase5()'><b>testCase5</b><br>Test class: automationFramework.NewUserTestNG</td>
+<td></td>
+<td>1</td>
+<td>automationFramework.NewUserTestNG@5c671d7f</td></tr>
+<tr>
+<td title='automationFramework.NewUserTestNG.testCase6()'><b>testCase6</b><br>Test class: automationFramework.NewUserTestNG</td>
+<td></td>
+<td>2</td>
+<td>automationFramework.NewUserTestNG@5c671d7f</td></tr>
+<tr>
+<td title='automationFramework.NewUserTestNG.testCase7()'><b>testCase7</b><br>Test class: automationFramework.NewUserTestNG</td>
+<td></td>
+<td>3</td>
+<td>automationFramework.NewUserTestNG@5c671d7f</td></tr>
+<tr>
+<td title='automationFramework.NewUserTestNG.testCase8()'><b>testCase8</b><br>Test class: automationFramework.NewUserTestNG</td>
+<td></td>
+<td>1</td>
+<td>automationFramework.NewUserTestNG@5c671d7f</td></tr>
+<tr>
+<td title='automationFramework.NewUserTestNG.testCase9()'><b>testCase9</b><br>Test class: automationFramework.NewUserTestNG</td>
+<td></td>
+<td>0</td>
+<td>automationFramework.NewUserTestNG@5c671d7f</td></tr>
 </table><p>
 </body>
 </html>
