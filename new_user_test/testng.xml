@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="New User Test Suite" >
+	<test name="New User Test" >
+		<classes>
+			<class name="automationFramework.NewUserTestNG" />
+		</classes>
+	</test>
+</suite>
