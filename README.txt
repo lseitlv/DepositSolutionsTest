@@ -9,7 +9,7 @@ The tests were implemented using Mozilla Firefox browser as the test platform, b
 
 The Test Cases defined for the New User webpage are defined in the TestCases.txt file.
 
-To execute the tests, right click the testng.xml file (suite file) and click on Run As -> TestNG Suite. Since the GeckoDriver location is defined for the test, it might be required to update it.
+To execute the tests, the project should be imported to Eclipse. Right click the testng.xml file (suite file) and click on Run As -> TestNG Suite. Since the GeckoDriver location is defined for the test, it might be required to update it.
 
 Challenges and final considerations:
 
