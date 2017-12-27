@@ -4,62 +4,79 @@ import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterClass;
+
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.Assert;
+import testObjects.User;
+import resources.ServiceAPI;
 
 public class NewUserTestNG {
 	
 	public WebDriver driver;
+	
+	//TC1 - User creation - Successful
+	  @Test
+	  public void testCase1() {
+		  
+		 User testUser = new User("Test Case1","testcase1@email.com","TestPassword123");
+		 testUser.registerNewUser(driver);
+		 testUser.verifyNewUser(driver);
+	
+	  }
+	  
+	  //TC2 - User creation - user name not unique
+	  @Test
+	  public void testCase2() {
+		 
+		 User testUser = new User("Test Case1","testcase2@email.com","TestPassword123");
+		 testUser.registerNewUser(driver);
+		 testUser.verifyNameNotUnique(driver);
 
-  //TC1 - User creation - Successful
-  @Test
-  public void testCase1() {
-	 
-	 String userName = "Test Case1";
-	 String userEmail = "testcase1@email.com";
-	 String password = "TestPassword123";
-	 
-	 driver.findElement(By.id("name")).sendKeys(userName);
-	 driver.findElement(By.id("email")).sendKeys(userEmail);
-	 driver.findElement(By.id("password")).sendKeys(password);
-	 driver.findElement(By.id("confirmationPassword")).sendKeys(password);
-	 driver.findElement(By.xpath("/html/body/div/div/div/form/fieldset/div[5]/button")).click();
-	 
-	 //Verifying that user information is displayed in the table
-	 String tableName = driver.findElement(By.cssSelector("table#users tr:last-child td:nth-of-type(1)")).getText();
-	 String tableEmail = driver.findElement(By.cssSelector("table#users tr:last-child td:nth-of-type(2)")).getText();
-	 String tablePassword = driver.findElement(By.cssSelector("table#users tr:last-child td:nth-of-type(3)")).getText();
-	 
-	 Assert.assertEquals(tableName, userName);
-	 Assert.assertEquals(tableEmail, userEmail);
-	 Assert.assertEquals(tablePassword, password);
-	 
-  }
-  
-  //TC2 - User creation - user name not unique
-  @Test
-  public void testCase2() {
-	 
-	 String userName = "Test Case1";
-	 String userEmail = "testcase2@email.com";
-	 String password = "TestPassword123!@#$%&";
-	 
-	 driver.findElement(By.id("name")).sendKeys(userName);
-	 driver.findElement(By.id("email")).sendKeys(userEmail);
-	 driver.findElement(By.id("password")).sendKeys(password);
-	 driver.findElement(By.id("confirmationPassword")).sendKeys(password);
-	 driver.findElement(By.xpath("/html/body/div/div/div/form/fieldset/div[5]/button")).click();
-	 
-	 //Checking that 'User name must be unique' message is displayed
-	 String expectedMessage = "Must be unique";
-	 String errorMessage = driver.findElement(By.id("user.name.error")).getText();
-	 Assert.assertEquals(errorMessage, expectedMessage);
+	  }
+ 
+  @BeforeMethod
+  public void beforeMethod() {
 
+	  driver.get("http://85.93.17.135:9000");
   }
-  
+ 
+  @BeforeClass
+  public void beforeClass() {
+	  
+	  System.setProperty("webdriver.gecko.driver", "C:\\Users\\edoslui\\Documents\\geckodriver-v0.19.1-win64\\geckodriver.exe");
+	  driver = new FirefoxDriver();
+	  // Adding implicit timeout time for locating elements before throwing exception
+	  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	  
+	//sending a DELETE request to the service API to get all users deleted.
+	  try {
+		  ServiceAPI.deleteAllUsers("http://85.93.17.135:9000/user/all");
+	  } catch (IOException e) {
+		  e.printStackTrace();
+	  }
+  }
+
+  @AfterClass
+  public void afterClass() {
+	  
+	  //sending a DELETE request to the service API to get all users deleted.
+	  try {
+		  ServiceAPI.deleteAllUsers("http://85.93.17.135:9000/user/all");
+	  } catch (IOException e) {
+		  e.printStackTrace();
+	  }
+		  
+	  //Closing the driver at the end of the execution
+	  driver.quit();
+  }
+
+}
+
+
+/*
   //TC3 - User creation - email not unique
   @Test
   public void testCase3() {
@@ -317,27 +334,4 @@ public class NewUserTestNG {
 		 Assert.assertEquals(errorMessage, expectedMessage);
 
   }
- 
-  @BeforeMethod
-  public void beforeMethod() {
-
-	  driver.get("http://85.93.17.135:9000");
-  }
- 
-  @BeforeClass
-  public void beforeClass() {
-	  
-	  System.setProperty("webdriver.gecko.driver", "C:\\Users\\edoslui\\Documents\\geckodriver-v0.19.1-win64\\geckodriver.exe");
-	  driver = new FirefoxDriver();
-	  // Adding implicit timeout time for locating elements before throwing exception
-	  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-  }
-
-  @AfterClass
-  public void afterClass() {
-	  
-	  //Closing the driver at the end of the execution
-	  driver.quit();
-  }
-
-}
+  */
